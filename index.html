@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .font-dancing {
+            font-family: 'Dancing Script', cursive;
+        }
+        .font-mont {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .bg-dark-blue {
+            background-color: #1a237e;
+        }
+        .text-neon-yellow {
+            color: #ffff00;
+        }
+        .border-neon-yellow {
+            border-color: #ffff00;
+        }
+        .screen {
+            display: none;
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        .screen.active {
+            display: flex;
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="bg-dark-blue overflow-hidden">
+    <!-- Welcome Screen -->
+    <div id="screen1" class="screen active bg-dark-blue flex flex-col items-center justify-center text-white p-4">
+        <h1 class="font-dancing text-5xl md:text-7xl text-center mb-8 text-neon-yellow floating">
+            Gracias por estar en mi vida
+        </h1>
+        <p class="font-mont text-xl md:text-2xl text-center mb-12 opacity-80">
+            Un viaje a través de nuestros momentos especiales
+        </p>
+        <button onclick="nextScreen()" class="bg-transparent border-2 border-neon-yellow text-neon-yellow font-mont px-8 py-3 rounded-full hover:bg-neon-yellow hover:text-dark-blue transition-all duration-300 text-lg">
+            Comenzar el viaje <i class="fas fa-heart ml-2"></i>
+        </button>
+    </div>
+
+    <!-- Memory Screen 1 -->
+    <div id="screen2" class="screen bg-dark-blue">
+        <div class="w-full h-full flex flex-col items-center justify-center p-4 relative">
+            <div class="absolute top-4 right-4 text-white text-lg">
+                <span class="font-mont">1/4</span>
+            </div>
+            <div class="w-full max-w-2xl aspect-[4/3] rounded-lg overflow-hidden mb-8 relative group">
+                <img src="https://images.pexels.com/photos/1024969/pexels-photo-1024969.jpeg" alt="First Memory" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            </div>
+            <p class="font-dancing text-3xl text-neon-yellow text-center mb-4">Nuestro primer encuentro</p>
+            <p class="font-mont text-white text-center max-w-lg opacity-80">
+                El momento en que nuestros caminos se cruzaron y todo cambió para siempre.
+            </p>
+            <div class="absolute bottom-8 left-0 right-0 flex justify-center gap-4">
+                <button onclick="prevScreen()" class="text-white hover:text-neon-yellow transition-colors">
+                    <i class="fas fa-chevron-left text-2xl"></i>
+                </button>
+                <button onclick="nextScreen()" class="text-white hover:text-neon-yellow transition-colors">
+                    <i class="fas fa-chevron-right text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Memory Screen 2 -->
+    <div id="screen3" class="screen bg-dark-blue">
+        <div class="w-full h-full flex flex-col items-center justify-center p-4 relative">
+            <div class="absolute top-4 right-4 text-white text-lg">
+                <span class="font-mont">2/4</span>
+            </div>
+            <div class="w-full max-w-2xl aspect-[4/3] rounded-lg overflow-hidden mb-8 relative group">
+                <img src="https://images.pexels.com/photos/1024988/pexels-photo-1024988.jpeg" alt="Second Memory" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            </div>
+            <p class="font-dancing text-3xl text-neon-yellow text-center mb-4">Nuestras Aventuras</p>
+            <p class="font-mont text-white text-center max-w-lg opacity-80">
+                Cada momento contigo es una nueva aventura llena de risas y amor.
+            </p>
+            <div class="absolute bottom-8 left-0 right-0 flex justify-center gap-4">
+                <button onclick="prevScreen()" class="text-white hover:text-neon-yellow transition-colors">
+                    <i class="fas fa-chevron-left text-2xl"></i>
+                </button>
+                <button onclick="nextScreen()" class="text-white hover:text-neon-yellow transition-colors">
+                    <i class="fas fa-chevron-right text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Memory Screen 3 -->
+    <div id="screen4" class="screen bg-dark-blue">
+        <div class="w-full h-full flex flex-col items-center justify-center p-4 relative">
+            <div class="absolute top-4 right-4 text-white text-lg">
+                <span class="font-mont">3/4</span>
+            </div>
+            <div class="w-full max-w-2xl aspect-[4/3] rounded-lg overflow-hidden mb-8 relative group">
+                <img src="https://images.pexels.com/photos/1024993/pexels-photo-1024993.jpeg" alt="Third Memory" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+            </div>
+            <p class="font-dancing text-3xl text-neon-yellow text-center mb-4">Momentos Especiales</p>
+            <p class="font-mont text-white text-center max-w-lg opacity-80">
+                Los pequeños momentos que hacen grande nuestro amor.
+            </p>
+            <div class="absolute bottom-8 left-0 right-0 flex justify-center gap-4">
+                <button onclick="prevScreen()" class="text-white hover:text-neon-yellow transition-colors">
+                    <i class="fas fa-chevron-left text-2xl"></i>
+                </button>
+                <button onclick="nextScreen()" class="text-white hover:text-neon-yellow transition-colors">
+                    <i class="fas fa-chevron-right text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Screen -->
+    <div id="screen5" class="screen bg-dark-blue flex flex-col items-center justify-center text-white p-4">
+        <h2 class="font-dancing text-5xl md:text-7xl text-center mb-8 text-neon-yellow floating">
+            Te Amo ❤️
+        </h2>
+        <p class="font-mont text-xl md:text-2xl text-center mb-12 opacity-80">
+            Gracias por compartir tu vida conmigo
+        </p>
+        <button onclick="restartJourney()" class="bg-transparent border-2 border-neon-yellow text-neon-yellow font-mont px-8 py-3 rounded-full hover:bg-neon-yellow hover:text-dark-blue transition-all duration-300 text-lg">
+            Volver a empezar <i class="fas fa-redo-alt ml-2"></i>
+        </button>
+    </div>
+
+    <script>
+        let currentScreen = 1;
+        const totalScreens = 5;
+
+        function showScreen(number) {
+            // Hide all screens
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            
+            // Show the selected screen
+            const screen = document.getElementById(`screen${number}`);
+            screen.classList.add('active');
+            screen.classList.add('fade-in');
+        }
+
+        function nextScreen() {
+            currentScreen = currentScreen < totalScreens ? currentScreen + 1 : 1;
+            showScreen(currentScreen);
+        }
+
+        function prevScreen() {
+            currentScreen = currentScreen > 1 ? currentScreen - 1 : totalScreens;
+            showScreen(currentScreen);
+        }
+
+        function restartJourney() {
+            currentScreen = 1;
+            showScreen(currentScreen);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextScreen();
+            } else if (e.key === 'ArrowLeft') {
+                prevScreen();
+            }
+        });
+
+        // Touch navigation
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const swipeLength = touchEndX - touchStartX;
+            
+            if (Math.abs(swipeLength) > swipeThreshold) {
+                if (swipeLength > 0) {
+                    prevScreen();
+                } else {
+                    nextScreen();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
